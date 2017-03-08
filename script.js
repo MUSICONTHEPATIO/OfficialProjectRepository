@@ -1,7 +1,7 @@
-LOCATION INPUT FIELD
-- User inputs their location into "where are you" input field || clicks on the "Find where I am" button
-- Make ajax request from foursuare to find patios near them based off of their location
-- Return 5 patios. Display the name, address, price range, a photo, and a rating of the patio, and the restaurant/bar url
+// LOCATION INPUT FIELD
+// - User inputs their location into "where are you" input field || clicks on the "Find where I am" button
+// - Make ajax request from foursuare to find patios near them based off of their location
+// - Return 5 patios. Display the name, address, price range, a photo, and a rating of the patio, and the restaurant/bar url
 
 var DOTP.App {}
 
@@ -25,7 +25,6 @@ DOTP.getPatios = function(){
 		}
 	})
 	$.when
-
 }
 
 // DOTP.getMusic = function(){
