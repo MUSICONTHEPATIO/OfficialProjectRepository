@@ -7,42 +7,52 @@
 // - 1. User inputs their favourite artist into input field
 // - 2. Ajax request from Spotify to generate a playlist. Display name of artist, the song, photo of artist, song duration. 
 
-var dotp.App {}
+const dotpApp = {}
 
-dotp.clientId = "HPIIHWSG4NJMA3IGF4H33WT0DQQDK5FLQWMZB4CFMUH422Q4";
+dotpApp.clientId = 'HPIIHWSG4NJMA3IGF4H33WT0DQQDK5FLQWMZB4CFMUH422Q4';
+dotpApp.clientSecret = 'Q1FVDO1ISJGD32TFCAQQFSVTWS4SWNEW3AJK0NOU2SBH2WHH';
 
-dotp.clientSecret = "Q1FVDO1ISJGD32TFCAQQFSVTWS4SWNEW3AJK0NOU2SBH2WHH";
+dotpApp.init = function(){
+	dotpApp.getPatios();
 
-dotp.getPatios = function(){
+}
+
+dotpApp.getPatios = function(userInput){
 	dotp.getPatiosNearMe = $.ajax({
 		url: "http://api.foursquare.com/v2/venues/explore",
 		method: "GET",
 		dataType: "json",
 		data: {
 			near: userLocation,
-			client_id: dotp.clientId,
-			client_secret: dotp.clientSecret,
+			client_id: dotpApp.clientId,
+			client_secret: dotpApp.clientSecret,
 			v: "20150201",
-			limit: ,
+			limit: 10,
 			query: patio,
-			venuePhotos: 1,
-		}
-	})
-	$.when
+			venuePhotos: 1
+		},
+
+	}) 
+
+	
 }
 
+console.log(dotpApp.getPatios);
 
-
-
-
-
-
-
-
-// twitter link
+var userInput = $( "input" )
+  .keyup(function() {
+    var value = $( this ).val();
+ 	console.log(value) 
+  })
+  
 
 $(function() {
-	$('.insert section').html(`<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Mash%20told%20me%20I'm%20going%20to%20have%20${kidResult}%20kid(s)%20with%20${loveResult}">Share your fortune on Twitter</a>`)
+
+	// $('.twitterIcon').html(`<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Heres%20my%20music%20update${loveResult}">Share your music selection on Twitter</a>`)
+
+
+
+
 });
 
 
