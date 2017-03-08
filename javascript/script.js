@@ -14,36 +14,58 @@ dotpApp.clientSecret = 'Q1FVDO1ISJGD32TFCAQQFSVTWS4SWNEW3AJK0NOU2SBH2WHH';
 
 dotpApp.init = function(){
 	dotpApp.getPatios();
-
 }
 
+userInput = "";
+$(".locationForm").on('submit', function(e){
+	e.preventDefault();
+	 userInput = $("#userLocation").val();
+	 dotpApp.getPatios(userInput);
+	 // console.log()
+
+})
+
 dotpApp.getPatios = function(userInput){
-	dotp.getPatiosNearMe = $.ajax({
+	$.ajax({
 		url: "http://api.foursquare.com/v2/venues/explore",
 		method: "GET",
 		dataType: "json",
 		data: {
-			near: userLocation,
+			near: userInput,
 			client_id: dotpApp.clientId,
 			client_secret: dotpApp.clientSecret,
 			v: "20150201",
 			limit: 10,
-			query: patio,
+			query: "patio",
 			venuePhotos: 1
-		},
+		}
+	}).then(function(data){
+		console.log(data);
 
-	}) 
-
+	})
 	
 }
 
-console.log(dotpApp.getPatios);
 
-var userInput = $("input")
-  .keyup(function() {
-    var value = $( this ).val();
- 	console.log(value) 
-  })
+
+// console.log(dotpApp.getPatios);
+
+
+console.log(userInput); 
+
+// var userInput = $("input")
+//   .keyup(function() {
+//     var value = $( this ).val();
+//  	console.log(value) 
+//   })
+
+
+
+
+
+
+
+>>>>>>> 7c5493723549b0232c4f3643152da39f0864712c
   
 
 $(function() {
