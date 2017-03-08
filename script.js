@@ -10,6 +10,7 @@
 // - 2. Ajax request from Spotify to generate a playlist. Display name of artist, the song, photo of artist, song duration. 
 
 
+
 var dotp.App {}
 
 dotp.clientId = "HPIIHWSG4NJMA3IGF4H33WT0DQQDK5FLQWMZB4CFMUH422Q4";
