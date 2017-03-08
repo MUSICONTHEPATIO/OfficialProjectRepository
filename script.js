@@ -9,7 +9,7 @@
 // - 1. User inputs their favourite artist into input field
 // - 2. Ajax request from Spotify to generate a playlist. Display name of artist, the song, photo of artist, song duration. 
 
-var dotp.App {}
+const dotp = {}
 
 dotp.clientId = "HPIIHWSG4NJMA3IGF4H33WT0DQQDK5FLQWMZB4CFMUH422Q4";
 
@@ -33,3 +33,4 @@ dotp.getPatios = function(){
 	$.when
 }
 
+dotp.spotifyUrl = 'https://api.spotify.com/v1';
