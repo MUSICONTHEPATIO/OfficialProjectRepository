@@ -39,7 +39,7 @@ dotpApp.getPatios = function(userInput){
 
 console.log(dotpApp.getPatios);
 
-var userInput = $( "input" )
+var userInput = $("input")
   .keyup(function() {
     var value = $( this ).val();
  	console.log(value) 
