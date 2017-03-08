@@ -33,5 +33,3 @@ dotp.getPatios = function(){
 	$.when
 }
 
-
-}
