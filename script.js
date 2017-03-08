@@ -6,7 +6,7 @@
 
 
 //SPOTIFY 
-// - 1. User inputs their favourite genre into input field
+// - 1. User inputs their favourite artist into input field
 // - 2. Ajax request from Spotify to generate a playlist. Display name of artist, the song, photo of artist, song duration. 
 
 
@@ -24,8 +24,8 @@ dotp.getPatios = function(){
 		dataType: "json",
 		data: {
 			near: userLocation,
-			client_id: DOTP.clientId,
-			client_secret: DOTP.clientSecret,
+			client_id: dotp.clientId,
+			client_secret: dotp.clientSecret,
 			v: "20150201",
 			limit: ,
 			query: patio,
