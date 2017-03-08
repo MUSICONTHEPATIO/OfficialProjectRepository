@@ -60,12 +60,6 @@ console.log(userInput);
 //   })
 
 
-
-
-
-
-
->>>>>>> 7c5493723549b0232c4f3643152da39f0864712c
   
 
 $(function() {
