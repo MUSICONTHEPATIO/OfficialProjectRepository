@@ -40,8 +40,12 @@ dotpApp.getPatios = function(userInput){
 			venuePhotos: 1
 		}
 	}).then(function(data){
-		console.log(data);
-
+		const objectsArray = data.response.groups[0].items;
+		const venuesArray = [];
+		objectsArray.forEach(function(object){
+			venuesArray.push(object.venue);
+		})
+		console.log(venuesArray);
 	})
 	
 }
