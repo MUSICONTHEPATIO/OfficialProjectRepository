@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Patio & Spotify</title>
-	<link rel="stylesheet" href="style.css">
+	<!-- <link rel="stylesheet" href="style.css"> -->
 	<script src="https://use.fontawesome.com/858e950473.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script
@@ -19,7 +19,7 @@
 
 		<nav>
 			<ul>
-				<li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+				<li class="twitterIcon"><i class="fa fa-twitter" aria-hidden="true"></i></li>
 				<li><i class="fa fa-envelope-o" aria-hidden="true"></i></li>
 				<li><i class="fa fa-facebook" aria-hidden="true"></i></li>
 			</ul>
@@ -39,12 +39,12 @@
 	<!-- LOCATION LOCATION LOCATION -->
 
 	<h2>Where you at?</h2>
-
-	<input type="text" placeholder="Enter your location">
-
-	<button>Find where I am</button>
-
-	<input type="submit">
+	<form class="locationForm">
+		<input id="userLocation" type="text" value="toronto">
+		<button>Find where I am</button>
+		<input class="locationForm__submit" type="submit">
+		<p class="locationAnswer"></p>
+	</form>
 
 	<!-- END LOCATION END LOCATION  -->
 
@@ -53,7 +53,7 @@
 
 	<h2>What are you listening to?</h2>
 
-	<input type="text" placeholder="Enter your favourite artist">
+<!-- 	<input type="text" placeholder="Enter your favourite artist"> -->
 
 	<!-- END MUSIC END MUSIC END MUSIC -->
 
