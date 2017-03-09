@@ -63,14 +63,8 @@ console.log(userInput);
 
 
 
-<<<<<<< HEAD
 // twitter link
-=======
 
-
-
-  
->>>>>>> 7c5493723549b0232c4f3643152da39f0864712c
 
 $(function() {
 
@@ -99,4 +93,3 @@ $(function() {
   });
 });
 
->>>>>>> 04a7fd487874543d721d17cc60ad3bb3d6b2999b:javascript/script.js
