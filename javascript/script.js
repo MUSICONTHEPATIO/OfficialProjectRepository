@@ -22,8 +22,6 @@ $(".locationForm").on('submit', function(e){
 	e.preventDefault();
 	 userInput = $("#userLocation").val();
 	 dotpApp.getPatios(userInput);
-	 // console.log()
-
 })
 
 dotpApp.getPatios = function(userInput){
@@ -37,33 +35,63 @@ dotpApp.getPatios = function(userInput){
 			client_secret: dotpApp.clientSecret,
 			v: "20150201",
 			limit: 10,
-			query: "patio",
+			query: "restaurants",
 			venuePhotos: 1
 		}
+
+	// 1. Return data
 	}).then(function(data){
-		console.log(data);
+		const objectsArray = data.response.groups[0].items;
+		let venuesArray = [];
+		objectsArray.forEach(function(object){
+			venuesArray.push(object.venue);
+		})
 
+	//2.Turn returned data into an array
+
+	// pass it into a new function
+		dotpApp.displayInfo(venuesArray);
+		});
+
+dotpApp.displayInfo = function(items) {
+	$('#patioResults').empty();
+	items.forEach(function(item){
+
+		if (item.verified === true) {
+			const foursquareVerified = item.verified;
+		}
+
+		const foursquareName = item.name;
+		const foursquareRating = item.rating;
+		const foursquareLocation = item.location.address + "," + " " + item.location.city + "," + " " + item.location.country;
+		const foursquarePhone = item.contact.formattedPhone;
+		const foursquarePrice = item.price.tier;
+		const foursquareUrl = item.url;
+
+		const foursquareNameElement = $('<h2>').addClass('venueName').text(foursquareName);
+		const foursquareRatingElement = $('<p>').addClass('venueRating').text(foursquareRating);
+		const foursquareLocationElement = $('<p>').addClass('venueLocation').text(foursquareLocation);
+		const foursquarePhoneElement = $('<p>').addClass('venuePhone').text(foursquarePhone);
+		const foursquarePriceElement = $('<p>').addClass('venuePrice').text(foursquarePrice);
+		const foursquareUrlElement = $('<p>').addClass('venueUrl').text(foursquareUrl);
+
+		const patioSuggestion = $('<div>').addClass('suggestedPatio').append(foursquareNameElement, foursquareRating, foursquareLocationElement, foursquarePhoneElement, foursquarePriceElement, foursquareUrlElement);
+
+		console.log(patioSuggestion);
+            $('#patioResults').append(patioSuggestion);
 	})
-	
-}
 
+};
+
+
+// twitter link
 
 
 // console.log(dotpApp.getPatios);
 
 
-console.log(userInput); 
+// console.log(userInput); 
 
-// var userInput = $("input")
-//   .keyup(function() {
-//     var value = $( this ).val();
-//  	console.log(value) 
-//   })
-
-
-
-
-// twitter link
 
 
 $(function() {
@@ -92,4 +120,5 @@ $(function() {
     }
   });
 });
+};
 
