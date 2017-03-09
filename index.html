@@ -39,11 +39,11 @@
 	<!-- LOCATION LOCATION LOCATION -->
 
 	<h2>Where you at?</h2>
-	<form class="locationForm">
+	<form class="form locationForm">
 
 		<input id="userLocation" type="text" placeholder="Enter city and province">
 		<button>Find where I am</button>
-		<input class="locationForm__submit" type="submit">
+		<input class="submit locationForm__submit" type="submit">
 		<p class="locationAnswer"></p>
 	</form>
 
@@ -54,7 +54,14 @@
 
 	<h2>What are you listening to?</h2>
 
-<!-- 	<input type="text" placeholder="Enter your favourite artist"> -->
+	<form class="form musicForm">
+
+		<input class="spotifyForm" type="text" placeholder="Enter an artist you like">
+		<input class="spotifyForm" type="text" placeholder="Enter an artist you like">
+		<input class="spotifyForm" type="text" placeholder="Enter an artist you like">
+		<input class="submit musicForm__submit" type="submit">
+
+	</form>	
 
 	<!-- END MUSIC END MUSIC END MUSIC -->
 
@@ -63,7 +70,7 @@
 
 	<div class="container" id="patioResults"></div>
 
-	<div class="musicResults"></div>
+	<div class="playlist"></div>
 
 	<!-- END RESULTS END RESULTS  -->
 
