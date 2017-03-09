@@ -7,14 +7,11 @@
 // - 1. User inputs their favourite artist into input field
 // - 2. Ajax request from Spotify to generate a playlist. Display name of artist, the song, photo of artist, song duration. 
 
+
 const dotpApp = {}
 
 dotpApp.clientId = 'HPIIHWSG4NJMA3IGF4H33WT0DQQDK5FLQWMZB4CFMUH422Q4';
 dotpApp.clientSecret = 'Q1FVDO1ISJGD32TFCAQQFSVTWS4SWNEW3AJK0NOU2SBH2WHH';
-
-dotpApp.init = function(){
-	dotpApp.getPatios();
-}
 
 userInput = "";
 $(".locationForm").on('submit', function(e){
@@ -83,15 +80,114 @@ dotpApp.displayInfo = function(items) {
 };
 
 
+// Below this line is all Spotify functionality
+
+dotpApp.spotifyUrl = 'https://api.spotify.com/v1';
+var spotifyArray = [];
+
+dotpApp.spotifyEvents = function() {
+	$('.spotifyForm').on('submit', function(e){
+		e.preventDefault();
+		$("input[type=search]").each(function() {
+   			spotifyArray.push($(this).val());
+		})
+		let search = spotifyArray.map(artistName => dotpApp.searchArtist(artistName));
+		dotpApp.retrieveArtistInfo(search);
+	})
+}
+
+// Makes a request to get artist info from API
+dotpApp.searchArtist = (artistName) => $.ajax({
+	url: `${dotpApp.spotifyUrl}/search`,
+	method: 'GET',
+	dataType: 'json',
+	data: {
+		q: artistName,
+		type: 'artist'
+	}
+})
 
 
+dotpApp.retrieveArtistInfo = function(search){
+	$.when(...search)
+		.then((...results) => {
+				results = results.map(getFirstElement)
+					.map((res) =>  res.artists.items[0].id)
+					.map(id => dotpApp.getArtistAlbums(id));
 
+					dotpApp.retrieveArtistTracks(results)
+		})
+}
+
+// Makes an AJAX call to retrieve albums based on the artist's Spotify id
+dotpApp.getArtistAlbums = (artistId) => $.ajax({
+	url: `${dotpApp.spotifyUrl}/artists/${artistId}/albums`,
+	method: 'GET',
+	dataType: 'json',
+	data: {
+		album_type: 'album'
+	}
+})
+
+// Gets artist's album ids and sends that info to the AJAX request
+dotpApp.retrieveArtistTracks = function(artistAlbums) {
+	$.when(...artistAlbums)
+		.then((...albums) => {
+			albumIds = albums.map(getFirstElement)
+				.map(res => res.items)
+				.reduce(flatten,[])
+				.map(album => album.id)
+				.map(ids => dotpApp.getArtistTracks(ids))
+			dotpApp.buildPlaylist(albumIds); 
+		});
+}
+
+// Makes the call to retrieve artist tracks based on id
+dotpApp.getArtistTracks = (id) => $.ajax({
+	url: `${dotpApp.spotifyUrl}/albums/${id}/tracks`,
+	method: 'GET',
+	dataType: 'json'
+});
+
+const getFirstElement = (item) => item[0];
+
+const flatten = (prev,curr) => [...prev,...curr];
+
+const getRandomTrack = (trackArray) => {
+	const randoNum = Math.floor(Math.random() * trackArray.length)
+	return trackArray[randoNum]
+}
+
+// Makes a playlist based on returned tracks and sends it to the page
+dotpApp.buildPlaylist = (tracks) => {
+	$.when(...tracks)
+		.then((...trackResults) => {
+			trackResults = trackResults.map(getFirstElement)
+				.map(item => item.items)
+				.reduce(flatten, [])
+				.map(item => item.id);
+
+			const randomTracks = [];
+			for(let i = 0; i <= 30; i++) {
+				randomTracks.push(getRandomTrack(trackResults));
+			}
+			randomTracks.join();
+			const baseUrl = `https://embed.spotify.com/?theme=white&uri=spotify:trackset:Patio Party:${randomTracks.join()}`;
+
+			$('.playlist').html(`<iframe src="${baseUrl}" height="350"></iframe>`)
+			
+		})
+}
+
+
+// twitter link
 
 
 // console.log(dotpApp.getPatios);
 
 
 // console.log(userInput); 
+
 
 
 $(function() {
@@ -122,3 +218,10 @@ $(function() {
 });
 };
 
+
+dotpApp.init = function(){
+	dotpApp.spotifyEvents();
+	dotpApp.getPatios();
+};
+
+$(dotpApp.init);
