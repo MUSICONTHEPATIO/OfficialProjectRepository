@@ -36,15 +36,39 @@ dotpApp.getPatios = function(userInput){
 			client_secret: dotpApp.clientSecret,
 			v: "20150201",
 			limit: 10,
-			query: "patio",
+			query: "restaurants",
 			venuePhotos: 1
 		}
-	}).then(function(data){
-		console.log(data);
 
-	})
-	
-}
+	// 1. Return data
+	}).then(function(data){
+
+	//2.Turn returned data into an array
+	const venuesArray = data.response.groups[0].items;
+	console.log(venuesArray)
+
+	dotpApp.displayInfo(news);
+
+
+	});
+
+	dotpApp.displayInfo = function(items) {
+	// $('#hackWork').empty();
+	// console.log('testing2',items)
+	items.forEach(function(item){
+ 
+
+	}
+
+
+// 	items.forEach(function(item) {
+// 		//loop over every item returned from API
+// 		// if (item.response.groups.object.items.venue != null) {
+
+// 		// }
+// 	})
+// };
+
 
 
 
@@ -53,14 +77,6 @@ dotpApp.getPatios = function(userInput){
 
 console.log(userInput); 
 
-// var userInput = $("input")
-//   .keyup(function() {
-//     var value = $( this ).val();
-//  	console.log(value) 
-//   })
-
-
-  
 
 $(function() {
 
@@ -88,4 +104,5 @@ $(function() {
     }
   });
 });
+};
 
