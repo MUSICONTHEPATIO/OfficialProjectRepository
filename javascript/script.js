@@ -21,8 +21,6 @@ $(".locationForm").on('submit', function(e){
 	e.preventDefault();
 	 userInput = $("#userLocation").val();
 	 dotpApp.getPatios(userInput);
-	 // console.log()
-
 })
 
 dotpApp.getPatios = function(userInput){
@@ -42,41 +40,44 @@ dotpApp.getPatios = function(userInput){
 
 	// 1. Return data
 	}).then(function(data){
-        const objectsArray = data.response.groups[0].items;
-        const venuesArray = [];
-        objectsArray.forEach(function(object){
-            venuesArray.push(object.venue);
-        })
-        console.log(venuesArray);
+		const objectsArray = data.response.groups[0].items;
+		let venuesArray = [];
+		objectsArray.forEach(function(object){
+			venuesArray.push(object.venue);
+		})
 
 	//2.Turn returned data into an array
-	const venuesArray = data.response.groups[0].items;
-	console.log(venuesArray)
+
 	// pass it into a new function
-	dotpApp.displayInfo(venuesArray);
-	});
+		dotpApp.displayInfo(venuesArray);
+		});
 
-	dotpApp.displayInfo = function(items) {
+dotpApp.displayInfo = function(items) {
+	$('#patioResults').empty();
 	items.forEach(function(item){
-		//loop over every item returned from API
-		console.log(item);
-		if (item.venue.verified === true) {
-		const foursquareUrl = item.url;
-		const foursquareVerified = item.verified;
-		const foursquareName = item.name;
-		const foursquareLocation = item.location;
 
-		const foursquarePhotoParts = item.photos.groups.items[0];
-		const foursquarePhoto = "";
-		
-
-		console.log(foursquarePhoto);
-		
-		const foursquareDisplayName = $('<h2>').addClass('name').text(foursquareName)
-		const foursquareDisplayUrl = $('<p>').addClass('url').text(foursquareUrl)
-		const foursquareDisplayLocation = $('<p>').addClass('url').text(foursquareUrl)
-
+		if (item.verified === true) {
+			const foursquareVerified = item.verified;
 		}
+
+		const foursquareName = item.name;
+		const foursquareRating = item.rating;
+		const foursquareLocation = item.location.address + "," + " " + item.location.city + "," + " " + item.location.country;
+		const foursquarePhone = item.contact.formattedPhone;
+		const foursquarePrice = item.price.tier;
+		const foursquareUrl = item.url;
+
+		const foursquareNameElement = $('<h2>').addClass('venueName').text(foursquareName);
+		const foursquareRatingElement = $('<p>').addClass('venueRating').text(foursquareRating);
+		const foursquareLocationElement = $('<p>').addClass('venueLocation').text(foursquareLocation);
+		const foursquarePhoneElement = $('<p>').addClass('venuePhone').text(foursquarePhone);
+		const foursquarePriceElement = $('<p>').addClass('venuePrice').text(foursquarePrice);
+		const foursquareUrlElement = $('<p>').addClass('venueUrl').text(foursquareUrl);
+
+		const patioSuggestion = $('<div>').addClass('suggestedPatio').append(foursquareNameElement, foursquareRating, foursquareLocationElement, foursquarePhoneElement, foursquarePriceElement, foursquareUrlElement);
+
+		console.log(patioSuggestion);
+            $('#patioResults').append(patioSuggestion);
 	})
 
 };
@@ -90,7 +91,7 @@ dotpApp.getPatios = function(userInput){
 // console.log(dotpApp.getPatios);
 
 
-console.log(userInput); 
+// console.log(userInput); 
 
 
 $(function() {
