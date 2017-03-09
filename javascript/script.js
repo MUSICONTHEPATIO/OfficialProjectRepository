@@ -42,32 +42,47 @@ dotpApp.getPatios = function(userInput){
 
 	// 1. Return data
 	}).then(function(data){
+        const objectsArray = data.response.groups[0].items;
+        const venuesArray = [];
+        objectsArray.forEach(function(object){
+            venuesArray.push(object.venue);
+        })
+        console.log(venuesArray);
 
 	//2.Turn returned data into an array
 	const venuesArray = data.response.groups[0].items;
 	console.log(venuesArray)
-
-	dotpApp.displayInfo(news);
-
-
+	// pass it into a new function
+	dotpApp.displayInfo(venuesArray);
 	});
 
 	dotpApp.displayInfo = function(items) {
-	// $('#hackWork').empty();
-	// console.log('testing2',items)
 	items.forEach(function(item){
- 
+		//loop over every item returned from API
+		console.log(item);
+		if (item.venue.verified === true) {
+		const foursquareUrl = item.url;
+		const foursquareVerified = item.verified;
+		const foursquareName = item.name;
+		const foursquareLocation = item.location;
 
-	}
+		const foursquarePhotoParts = item.photos.groups.items[0];
+		const foursquarePhoto = "";
+		
+
+		console.log(foursquarePhoto);
+		
+		const foursquareDisplayName = $('<h2>').addClass('name').text(foursquareName)
+		const foursquareDisplayUrl = $('<p>').addClass('url').text(foursquareUrl)
+		const foursquareDisplayLocation = $('<p>').addClass('url').text(foursquareUrl)
+
+		}
+	})
+
+};
 
 
-// 	items.forEach(function(item) {
-// 		//loop over every item returned from API
-// 		// if (item.response.groups.object.items.venue != null) {
 
-// 		// }
-// 	})
-// };
 
 
 
