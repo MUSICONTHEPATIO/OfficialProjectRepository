@@ -10,6 +10,8 @@
 
 const dotpApp = {}
 
+// below this is all the foursquare functionality
+
 dotpApp.clientId = 'HPIIHWSG4NJMA3IGF4H33WT0DQQDK5FLQWMZB4CFMUH422Q4';
 dotpApp.clientSecret = 'Q1FVDO1ISJGD32TFCAQQFSVTWS4SWNEW3AJK0NOU2SBH2WHH';
 
@@ -42,12 +44,9 @@ dotpApp.getPatios = function(userInput){
 		objectsArray.forEach(function(object){
 			venuesArray.push(object.venue);
 		})
-
-	//2.Turn returned data into an array
-
-	// pass it into a new function
 		dotpApp.displayInfo(venuesArray);
-		});
+	});
+}
 
 dotpApp.displayInfo = function(items) {
 	$('#patioResults').empty();
@@ -80,18 +79,20 @@ dotpApp.displayInfo = function(items) {
 };
 
 
-// Below this line is all Spotify functionality
 
+
+// Below this line is all Spotify functionality
 dotpApp.spotifyUrl = 'https://api.spotify.com/v1';
 var spotifyArray = [];
 
 dotpApp.spotifyEvents = function() {
-	$('.spotifyForm').on('submit', function(e){
+	$('.musicForm').on('submit', function(e){
 		e.preventDefault();
 		$("input[type=search]").each(function() {
    			spotifyArray.push($(this).val());
 		})
 		let search = spotifyArray.map(artistName => dotpApp.searchArtist(artistName));
+		console.log("idkjhaskjdhksa");
 		dotpApp.retrieveArtistInfo(search);
 	})
 }
@@ -179,49 +180,20 @@ dotpApp.buildPlaylist = (tracks) => {
 		})
 }
 
-
-// twitter link
-
-
-// console.log(dotpApp.getPatios);
-
-
-// console.log(userInput); 
-
-
-
-$(function() {
-
-	// $('.twitterIcon').html(`<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Heres%20my%20music%20update${loveResult}">Share your music selection on Twitter</a>`)
-
-
-
-
-});
-
-
-// smooth scroll
-
-$(function() {
-  $('a[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-};
-
+ 
 
 dotpApp.init = function(){
-	dotpApp.spotifyEvents();
+
 	dotpApp.getPatios();
+	dotpApp.spotifyEvents();
 };
 
-$(dotpApp.init);
+
+// // smooth scroll
+
+
+$(function() {
+  dotpApp.init();
+});
+
+
