@@ -3,8 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Patio & Spotify</title>
-	<!-- <link rel="stylesheet" href="style.css"> -->
+	<link rel="stylesheet" href="CSS/style.css">
 	<script src="https://use.fontawesome.com/858e950473.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Crafty+Girls|Kalam|Pangolin|Permanent+Marker|Roboto|Zeyada" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script
 		src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -12,9 +15,7 @@
 		crossorigin="anonymous"></script>
 </head>
 <body>
-
 	<!-- TITLE TITLE TITLE TITLE -->
-
 	<header>
 
 		<nav>
@@ -27,9 +28,9 @@
 
 		<h1>Drinking On the Patio</h1>
 
-		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae non excepturi dolore molestias dolor ratione quaerat aut eveniet rem nemo obcaecati vero atque, porro mollitia hic explicabo accusantium accusamus ea.</h3>
+		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae non excepturi dolore molestias dolor ratione</h3>
 
-		<a href="#">Let's Get Started</a>
+		<div class="header__buttonContainer"><a href="#" class="header__button">Let's Get Started</a></div>
 
 	</header>
 
@@ -37,15 +38,16 @@
 
 
 	<!-- LOCATION LOCATION LOCATION -->
+	<section class="locationPage">
+		<h2>Where you at?</h2>
+		<form class="form locationForm">
 
-	<h2>Where you at?</h2>
-	<form class="form locationForm">
-
-		<input id="userLocation" type="text" placeholder="Enter city and province">
-		<button>Find where I am</button>
-		<input class="submit locationForm__submit" type="submit">
-		<p class="locationAnswer"></p>
-	</form>
+			<input id="userLocation" type="text" placeholder="Enter city and province">
+			<button>Find where I am</button>
+			<input class="submit locationForm__submit" type="submit">
+			<p class="locationAnswer"></p>
+		</form>
+	</section>
 
 	<!-- END LOCATION END LOCATION  -->
 
@@ -62,12 +64,10 @@
 		<input class="submit musicForm__submit" type="submit">
 
 	</form>	
-
 	<!-- END MUSIC END MUSIC END MUSIC -->
 
 
 	<!-- RESULTS RESULTS RESULTS RESULTS -->
-
 	<div class="container" id="patioResults"></div>
 
 	<div class="playlist"></div>
