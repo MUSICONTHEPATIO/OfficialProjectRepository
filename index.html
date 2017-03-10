@@ -30,7 +30,7 @@
 
 		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae non excepturi dolore molestias dolor ratione</h3>
 
-		<div class="header__buttonContainer"><a href="#" class="header__button">Let's Get Started</a></div>
+		<div class="header__buttonContainer"><a href="#" class="header__button">Get Started</a></div>
 
 	</header>
 
@@ -38,15 +38,28 @@
 
 
 	<!-- LOCATION LOCATION LOCATION -->
-	<section class="locationPage">
-		<h2>Where you at?</h2>
-		<form class="form locationForm">
+	<section class="locationPage flex">
 
-			<input id="userLocation" type="text" placeholder="Enter city and province">
-			<button>Find where I am</button>
-			<input class="submit locationForm__submit" type="submit">
-			<p class="locationAnswer"></p>
-		</form>
+		<div class="formContainer">
+
+			<h2 class="h2Style">Where you at?</h2>
+
+			<p class="formDescription">Enter your city or neighbourhood and your province</p>
+
+			<form class="form">
+
+				<input class="form__displayBlock form__input" id="userLocation" type="text" placeholder="Enter city and province" value="Toronto, ON">
+
+				<!-- <button class="locationForm__displayBlock" >Find where I am</button> -->
+
+				<input class="submit locationForm__submit locationForm__displayBlock" type="submit">
+
+				<p class="locationAnswer"></p>
+
+			</form>
+
+		</div>	
+
 	</section>
 
 	<!-- END LOCATION END LOCATION  -->
@@ -54,16 +67,33 @@
 
 	<!-- MUSIC MUSIC MUSIC MUSIC -->
 
-	<h2>What are you listening to?</h2>
+	<section class="musicPage flex">
 
-	<form class="form musicForm">
+		<div class="formContainer">
 
-		<input class="spotifyForm" type="search" placeholder="Enter an artist you like" value="drake">
-		<input class="spotifyForm" type="search" placeholder="Enter an artist you like" value="sublime">
-		<input class="spotifyForm" type="search" placeholder="Enter an artist you like" value="rihanna">
-		<input class="submit musicForm__submit" type="submit">
+			<h2 class="h2Style">What are you listening to?</h2>
 
-	</form>	
+			<p class="formDescription">Enter three artists you would enjoying listening to on a patio</p>
+
+			<form class="form">
+
+
+
+				<input class="form__displayBlock form__input" type="search" placeholder="Enter an artist you like" value="Rihanna">
+
+				<input class="form__displayBlock form__input" type="search" placeholder="Enter an artist you like" value="Drake">
+
+				<input class="form__displayBlock form__input" type="search" placeholder="Enter an artist you like" value="Sublime">
+
+
+
+				<input class="submit musicForm__submit form__displayBlock" type="submit">
+
+			</form>	
+
+		</div>	
+
+	</section>
 	<!-- END MUSIC END MUSIC END MUSIC -->
 
 
