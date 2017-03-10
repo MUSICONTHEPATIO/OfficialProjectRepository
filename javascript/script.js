@@ -19,10 +19,10 @@ userInput = "";
 $(".locationForm").on('submit', function(e){
 	e.preventDefault();
 	 userInput = $("#userLocation").val();
-	 dotpApp.getPatios(userInput);
-})
+	 // dotpApp.getPatios(userInput);
+});
 
-dotpApp.getPatios = function(userInput){
+dotpApp.getPatios = (userInput) => {
 	$.ajax({
 		url: "http://api.foursquare.com/v2/venues/explore",
 		method: "GET",
@@ -38,19 +38,22 @@ dotpApp.getPatios = function(userInput){
 		}
 
 	// 1. Return data
-	}).then(function(data){
+	}).then((data) => {
 		const objectsArray = data.response.groups[0].items;
 		let venuesArray = [];
-		objectsArray.forEach(function(object){
-			venuesArray.push(object.venue);
-		})
+
+		objectsArray.forEach((object) => venuesArray.push(object.venue))
+
+	//2.Turn returned data into an array
+
+	// pass it into a new function
 		dotpApp.displayInfo(venuesArray);
-	});
+		});
 }
 
-dotpApp.displayInfo = function(items) {
+dotpApp.displayInfo = (items) => {
 	$('#patioResults').empty();
-	items.forEach(function(item){
+	items.forEach((item) => {
 
 		if (item.verified === true) {
 			const foursquareVerified = item.verified;
@@ -78,9 +81,6 @@ dotpApp.displayInfo = function(items) {
 
 };
 
-
-
-
 // Below this line is all Spotify functionality
 dotpApp.spotifyUrl = 'https://api.spotify.com/v1';
 var spotifyArray = [];
@@ -92,7 +92,7 @@ dotpApp.spotifyEvents = function() {
    			spotifyArray.push($(this).val());
 		})
 		let search = spotifyArray.map(artistName => dotpApp.searchArtist(artistName));
-		console.log("idkjhaskjdhksa");
+		dotpApp.getPatios(userInput);
 		dotpApp.retrieveArtistInfo(search);
 	})
 }
@@ -184,16 +184,15 @@ dotpApp.buildPlaylist = (tracks) => {
 
 dotpApp.init = function(){
 
+
 	dotpApp.getPatios();
 	dotpApp.spotifyEvents();
 };
 
 
-// // smooth scroll
-
-
 $(function() {
   dotpApp.init();
 });
+
 
 
