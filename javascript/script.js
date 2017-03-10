@@ -17,10 +17,10 @@ userInput = "";
 $(".locationForm").on('submit', function(e){
 	e.preventDefault();
 	 userInput = $("#userLocation").val();
-	 dotpApp.getPatios(userInput);
-})
+	 // dotpApp.getPatios(userInput);
+});
 
-dotpApp.getPatios = function(userInput){
+dotpApp.getPatios = (userInput) => {
 	$.ajax({
 		url: "http://api.foursquare.com/v2/venues/explore",
 		method: "GET",
@@ -36,22 +36,21 @@ dotpApp.getPatios = function(userInput){
 		}
 
 	// 1. Return data
-	}).then(function(data){
+	}).then((data) => {
 		const objectsArray = data.response.groups[0].items;
 		let venuesArray = [];
-		objectsArray.forEach(function(object){
-			venuesArray.push(object.venue);
-		})
+		objectsArray.forEach((object) => venuesArray.push(object.venue))
 
 	//2.Turn returned data into an array
 
 	// pass it into a new function
 		dotpApp.displayInfo(venuesArray);
 		});
+}
 
-dotpApp.displayInfo = function(items) {
+dotpApp.displayInfo = (items) => {
 	$('#patioResults').empty();
-	items.forEach(function(item){
+	items.forEach((item) => {
 
 		if (item.verified === true) {
 			const foursquareVerified = item.verified;
@@ -81,17 +80,17 @@ dotpApp.displayInfo = function(items) {
 
 
 // Below this line is all Spotify functionality
-
 dotpApp.spotifyUrl = 'https://api.spotify.com/v1';
 var spotifyArray = [];
 
 dotpApp.spotifyEvents = function() {
-	$('.spotifyForm').on('submit', function(e){
+	$('.musicForm').on('submit', function(e){
 		e.preventDefault();
 		$("input[type=search]").each(function() {
    			spotifyArray.push($(this).val());
 		})
 		let search = spotifyArray.map(artistName => dotpApp.searchArtist(artistName));
+		dotpApp.getPatios(userInput);
 		dotpApp.retrieveArtistInfo(search);
 	})
 }
@@ -177,46 +176,37 @@ dotpApp.buildPlaylist = (tracks) => {
 			$('.playlist').html(`<iframe src="${baseUrl}" height="350"></iframe>`)
 			
 		})
-}
-
+};
 
 // twitter link
 
-
-// console.log(dotpApp.getPatios);
-
-
-// console.log(userInput); 
-
-
-
-$(function() {
+// $(function() {
 
 	// $('.twitterIcon').html(`<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Heres%20my%20music%20update${loveResult}">Share your music selection on Twitter</a>`)
 dotpApp.init();
 
 
 
-});
+// });
 
 
 // smooth scroll
 
-$(function() {
-  $('a[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-};
+// $(function() {
+//   $('a[href*="#"]:not([href="#"])').click(function() {
+//     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+//       var target = $(this.hash);
+//       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+//       if (target.length) {
+//         $('html, body').animate({
+//           scrollTop: target.offset().top
+//         }, 1000);
+//         return false;
+//       }
+//     }
+//   });
+// });
+// };
 
 
 dotpApp.init = function(){
