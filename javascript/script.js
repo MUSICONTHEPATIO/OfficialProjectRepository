@@ -22,7 +22,7 @@ dotpApp.getPatios = (userInput) => {
 			client_id: dotpApp.clientId,
 			client_secret: dotpApp.clientSecret,
 			v: "20150201",
-			limit: 10,
+			limit: 5,
 			query: "restaurants",
 			venuePhotos: 1
 		}
@@ -55,15 +55,16 @@ dotpApp.displayInfo = (items) => {
 		const foursquarePhone = item.contact.formattedPhone;
 		const foursquarePrice = item.price.tier;
 		const foursquareUrl = item.url;
+		console.log('yo', item.url);
 
 		const foursquareNameElement = $('<h4>').addClass('venueName').text(foursquareName);
-		const foursquareRatingElement = $('<p>').addClass('venueRating').text(foursquareRating);
-		const foursquareLocationElement = $('<p>').addClass('venueLocation').text(foursquareLocation);
-		const foursquarePhoneElement = $('<p>').addClass('venuePhone').text(foursquarePhone);
-		const foursquarePriceElement = $('<p>').addClass('venuePrice').text(foursquarePrice);
-		const foursquareUrlElement = $('<p>').addClass('venueUrl').text(foursquareUrl);
+		const foursquareRatingElement = $('<p>').addClass('results__Content').text(foursquareRating);
+		const foursquareLocationElement = $('<p>').addClass('results__Content').text(foursquareLocation);
+		const foursquarePhoneElement = $('<p>').addClass('results__Content').text(foursquarePhone);
+		const foursquarePriceElement = $('<p>').addClass('results__Content').text(foursquarePrice);
+		const foursquareUrlElement = $('<a href>').addClass('results__Content').text(foursquareUrl);
 
-		const patioSuggestion = $('<div>').addClass('suggestedPatio').append(foursquareNameElement, foursquareRating, foursquareLocationElement, foursquarePhoneElement, foursquarePriceElement, foursquareUrlElement);
+		const patioSuggestion = $('<div>').addClass('suggestedPatio').append(foursquareNameElement, foursquareRatingElement, foursquareLocationElement, foursquarePhoneElement, foursquarePriceElement, foursquareUrlElement);
 
 		console.log(patioSuggestion);
             $('#patioResults').append(patioSuggestion);

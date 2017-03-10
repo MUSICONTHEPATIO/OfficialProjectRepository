@@ -1,0 +1,41 @@
+.container {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+}
+
+.patio {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.playlist {
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.suggestedPatio {
+	border: 1px solid black;
+	width: 60%;
+	text-align: center;
+	background: gainsboro;
+	padding: 20px 0;
+}
+
+.results__Content {
+	margin: 0;
+	font-size: 1rem;
+	font-family: $bodyFontFamily;
+}
+
+.venueName {
+	font-size: 1.2rem;
+	font-style: $titleFontFamily;
+	margin: 0;
+}
+
