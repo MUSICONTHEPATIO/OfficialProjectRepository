@@ -1,0 +1,59 @@
+@mixin button($fontColor, $borderColor) {
+    background-color: transparent;
+    border: 1px solid $borderColor;
+    color: $fontColor;
+    letter-spacing: 1px;
+    font-weight: lighter;
+    font-size: 10px;
+    width: 110px;
+    padding: 7px 0;
+}
+
+header {
+	color: $brandWhite;
+	height: 100vh;
+	background-size: cover;
+	background-position: center; 
+	background-image: linear-gradient(to right, rgba(211,4,208,0.9) -1%,rgba(211,4,208,0.6) 0%,rgba(65,65,242,0.6) 100%), url(../images/heroImage1.jpg);
+}
+
+header h1 {
+	font-size: $titleFontSize;
+	text-align: center;
+	padding-bottom: 5px;
+	font-family: $titleFontFamily;
+	padding-top:100px;
+}
+
+header h3 {
+	font-size: $bodyFontSize;
+	text-align: center;
+	font-family: $bodyFontFamily;
+}
+
+.header__buttonContainer {
+	width: 100%;
+	text-align: center;
+}
+
+ a.header__button {
+ 	@include button(white, white)
+ 	display: inline-block;
+	text-decoration: none;
+	margin-top: 80px;	
+}
+
+
+ul {
+	margin:0;
+	list-style: none;
+	flex-direction: row;
+	font-size: 2rem;
+	display: flex ;
+	justify-content: space-between;
+	width: 10%;
+	padding-top: 10px;
+}
+
+
+
