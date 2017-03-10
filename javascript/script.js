@@ -1,13 +1,3 @@
-// FOURSQUARE 
-// - 1. User inputs their location into "where are you" input field || clicks on the "Find where I am" button
-// - 2. Make ajax request from foursqare to find patios near them based off of their location
-// - 3. Return 5 patios. Display the name, address, price range, a photo, and a rating of the patio, and the restaurant/bar url
-
-//SPOTIFY 
-// - 1. User inputs their favourite artist into input field
-// - 2. Ajax request from Spotify to generate a playlist. Display name of artist, the song, photo of artist, song duration. 
-
-
 const dotpApp = {}
 
 // below this is all the foursquare functionality
@@ -183,8 +173,6 @@ dotpApp.buildPlaylist = (tracks) => {
  
 
 dotpApp.init = function(){
-
-
 	dotpApp.getPatios();
 	dotpApp.spotifyEvents();
 };
