@@ -193,7 +193,7 @@ dotpApp.buildPlaylist = (tracks) => {
 $(function() {
 
 	// $('.twitterIcon').html(`<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Heres%20my%20music%20update${loveResult}">Share your music selection on Twitter</a>`)
-
+dotpApp.init();
 
 
 
