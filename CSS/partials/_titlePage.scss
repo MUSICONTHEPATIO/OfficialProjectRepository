@@ -1,13 +1,4 @@
-@mixin button($fontColor, $borderColor) {
-    background-color: transparent;
-    border: 1px solid $borderColor;
-    color: $fontColor;
-    letter-spacing: 1px;
-    font-weight: lighter;
-    font-size: 10px;
-    width: 110px;
-    padding: 7px 0;
-}
+@import 'partials/variables';
 
 header {
 	color: $brandWhite;

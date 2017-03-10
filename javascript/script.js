@@ -56,7 +56,7 @@ dotpApp.displayInfo = (items) => {
 		const foursquarePrice = item.price.tier;
 		const foursquareUrl = item.url;
 
-		const foursquareNameElement = $('<h2>').addClass('venueName').text(foursquareName);
+		const foursquareNameElement = $('<h4>').addClass('venueName').text(foursquareName);
 		const foursquareRatingElement = $('<p>').addClass('venueRating').text(foursquareRating);
 		const foursquareLocationElement = $('<p>').addClass('venueLocation').text(foursquareLocation);
 		const foursquarePhoneElement = $('<p>').addClass('venuePhone').text(foursquarePhone);

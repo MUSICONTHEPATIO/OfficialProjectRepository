@@ -1,15 +1,27 @@
 @import 'partials/variables';
 @import 'partials/titlePage';
-@import 'partials/location' ;
-@import 'partials/music';
+@import 'partials/location';
 @import 'partials/responsive';
 @import 'partials/results';
 @import 'partials/setup';
 
-
+.flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	
+}
+.formContainer {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
 
 html {
-font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 

@@ -1,20 +1,43 @@
+@import 'partials/variables';
+
 .locationPage {
-	height: 100vh;
 	background-color: lightpink;
+}
+
+.musicPage {
+	background-color: darkcyan;
+}
+
+.h2Style {
+	margin: 0;
+	font-size: 4.5rem;	
+	color: $brandWhite;
+	font-family: $titleFontFamily;
+}
+
+.formDescription {
+	color: white;
+	font-family: $bodyFontFamily;
+	font-size: $bodyFontSize;
 
 }
 
-
-.locationPage h2 {
-	margin: 0;	
-
+.form__displayBlock {
+	display: block;
+	margin: 0 auto
 }
 
-.location button, input[type=submit], input[type=text],  {
-	font-size: 2rem;
-	background-color: white;
-	border: 2px solid black;
-	color: black;
-	padding: 5px;
+.form {
+	border: 1px solid red;
+	margin-top: 50px;
 }
 
+.form__input {
+	@include inputField
+	margin-top: 20px;
+}
+
+.submit {
+	@include button(#FFFFFF, #FFFFFF)
+	margin-top: 20px;
+}
