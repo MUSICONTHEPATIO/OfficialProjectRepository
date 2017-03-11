@@ -5,13 +5,14 @@ const dotpApp = {}
 dotpApp.clientId = 'HPIIHWSG4NJMA3IGF4H33WT0DQQDK5FLQWMZB4CFMUH422Q4';
 dotpApp.clientSecret = 'Q1FVDO1ISJGD32TFCAQQFSVTWS4SWNEW3AJK0NOU2SBH2WHH';
 
+
 userInput = "";
 $(".locationForm").on('submit', function(e){
 	e.preventDefault();
-	 userInput = $("#userLocation").val();
-	 // dotpApp.getPatios(userInput);
+	userInput = $("#userLocation").val();
 });
 
+// AJAX request to get patio search results
 dotpApp.getPatios = (userInput) => {
 	$.ajax({
 		url: "http://api.foursquare.com/v2/venues/explore",
@@ -23,39 +24,39 @@ dotpApp.getPatios = (userInput) => {
 			client_secret: dotpApp.clientSecret,
 			v: "20150201",
 			limit: 5,
-			query: "restaurants",
+			query: "patio",
 			venuePhotos: 1
+		},
+		error: function(response){
+			$(".errorMessage").removeClass("invisible")
 		}
-
 	// 1. Return data
 	}).then((data) => {
-		const objectsArray = data.response.groups[0].items;
-		let venuesArray = [];
+			const objectsArray = data.response.groups[0].items;
+			let venuesArray = [];
 
-		objectsArray.forEach((object) => venuesArray.push(object.venue))
+			objectsArray.forEach((object) => venuesArray.push(object.venue))
 
 	//2.Turn returned data into an array
 
 	// pass it into a new function
 		dotpApp.displayInfo(venuesArray);
-		});
+
+	});
 }
 
 dotpApp.displayInfo = (items) => {
 	$('#patioResults').empty();
 	items.forEach((item) => {
 
-		if (item.verified === true) {
-			const foursquareVerified = item.verified;
-		}
-
+	
+		const foursquareVerified = item.verified
 		const foursquareName = item.name;
 		const foursquareRating = item.rating;
 		const foursquareLocation = item.location.address + "," + " " + item.location.city + "," + " " + item.location.country;
 		const foursquarePhone = item.contact.formattedPhone;
 		const foursquarePrice = item.price.tier;
 		const foursquareUrl = item.url;
-		console.log('yo', item.url);
 
 		const foursquareNameElement = $('<h4>').addClass('venueName').text(foursquareName);
 		const foursquareRatingElement = $('<p>').addClass('results__Content').text(foursquareRating);
@@ -64,12 +65,10 @@ dotpApp.displayInfo = (items) => {
 		const foursquarePriceElement = $('<p>').addClass('results__Content').text(foursquarePrice);
 		const foursquareUrlElement = $('<a href>').addClass('results__Content').text(foursquareUrl);
 
-		const patioSuggestion = $('<div>').addClass('suggestedPatio').append(foursquareNameElement, foursquareRatingElement, foursquareLocationElement, foursquarePhoneElement, foursquarePriceElement, foursquareUrlElement);
+		const patioSuggestion = $('<div>').addClass('suggestedPatio carousel-cell').append(foursquareNameElement, foursquareRatingElement, foursquareLocationElement, foursquarePhoneElement, foursquarePriceElement, foursquareUrlElement);
 
-		console.log(patioSuggestion);
-            $('#patioResults').append(patioSuggestion);
+            $(".patio").append(patioSuggestion);		
 	})
-
 };
 
 // Below this line is all Spotify functionality
@@ -83,8 +82,11 @@ dotpApp.spotifyEvents = function() {
    			spotifyArray.push($(this).val());
 		})
 		let search = spotifyArray.map(artistName => dotpApp.searchArtist(artistName));
+
+
 		dotpApp.getPatios(userInput);
-		dotpApp.retrieveArtistInfo(search);
+		
+		// dotpApp.retrieveArtistInfo(search);
 	})
 }
 
@@ -167,14 +169,13 @@ dotpApp.buildPlaylist = (tracks) => {
 			const baseUrl = `https://embed.spotify.com/?theme=white&uri=spotify:trackset:Patio Party:${randomTracks.join()}`;
 
 			$('.playlist').html(`<iframe src="${baseUrl}" height="350"></iframe>`)
+				dotpApp.getPatios();
 			
 		})
-}
-
- 
+};
 
 dotpApp.init = function(){
-	dotpApp.getPatios();
+
 	dotpApp.spotifyEvents();
 };
 
