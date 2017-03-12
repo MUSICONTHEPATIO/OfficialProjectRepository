@@ -27,8 +27,19 @@ body {
 	max-width: 1300px;
 }
 
+footer p{
+	font-family: $bodyFontFamily;
+	font-size: 1.3rem;
+	padding: 10px;
+	text-align: center;
+}
 
-
-// 1.Change border for button on music page
-//2. Font size for restaurants
-//3 Size of spotify
+// THINGS THAT STILL NEED TO BE DONE (by priority)
+// 1. Title page subtitle 
+// 2. Finish the styling of the results page
+// 3. Responsive
+// 4. Link icons in the title page to websites
+// 5. Footer background colour (thought I would wait until we decided what the background of the results page would be)
+// 6. Take off fixed values in the inputs and insert placeholder text
+// 7. Hovers on buttons
+// 8. Change hero image to something not off of google (TK said she had access to an image website) if not, credit where the image is from in the footer
