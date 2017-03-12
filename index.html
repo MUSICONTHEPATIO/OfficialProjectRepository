@@ -8,6 +8,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Crafty+Girls|Kalam|Pangolin|Permanent+Marker|Roboto|Zeyada" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+	<link rel="icon" type="image/png" href="images/headphones.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script
@@ -55,7 +56,7 @@
 
 			<form class="form locationForm">
 
-				<input class="form__displayBlock form__input" id="userLocation" type="text" placeholder="Enter city and province" value="Toronto, ON">
+				<input class="form__displayBlock form__input" id="userLocation" type="text" placeholder="Enter city and province" value="">
 
 				<!-- <button class="locationForm__displayBlock" >Find where I am</button> -->
 
@@ -64,10 +65,6 @@
 				<p class="locationAnswer"></p>
 
 			</form>
-
-			<div id="error" class="spotifyError invisible">
-				<h4>Spotify can't generate a playlist out of nothing! Please enter a few of your favourite artists.</h4>
-			</div>	
 
 			<a class="arrowIcon arrowIcon--location" href="#musicSection"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
 
@@ -92,11 +89,11 @@
 
 
 
-				<input class="form__displayBlock form__input" type="search" placeholder="Enter an artist you like" value="Rihanna">
+				<input class="form__displayBlock form__input" type="search" placeholder="Enter an artist you like" value="">
 
-				<input class="form__displayBlock form__input" type="search" placeholder="Enter an artist you like" value="Drake">
+				<input class="form__displayBlock form__input" type="search" placeholder="Enter an artist you like" value="">
 
-				<input class="form__displayBlock form__input" type="search" placeholder="Enter an artist you like" value="Sublime">
+				<input class="form__displayBlock form__input" type="search" placeholder="Enter an artist you like" value="">
 
 
 
@@ -104,9 +101,14 @@
 
 			</form>	
 
-			<div id="error" class="errorMessage invisible">
+			<div id="spotify_Error" class="errorMessage invisible">
 				<h4>Looks like FourSquare can't find your location. Please try another address?</h4>
+				
+				<div id="fourSquare_error" class="spotifyError invisible">
+				<h4>Spotify can't generate a playlist out of nothing! Please enter a few of your favourite artists.</h4>
 				<a class="arrowIcon arrowIcon--music" href="#locationSection"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+			</div>	
 			</div>
 			
 		</div>	
