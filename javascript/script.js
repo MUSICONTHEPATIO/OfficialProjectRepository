@@ -10,6 +10,7 @@ userInput = "";
 $(".locationForm").on('submit', function(e){
 	e.preventDefault();
 	userInput = $("#userLocation").val();
+	$("#userlocation").val("");
 });
 
 // AJAX request to get patio search results
@@ -27,8 +28,11 @@ dotpApp.getPatios = (userInput) => {
 			query: "patio",
 			venuePhotos: 1
 		},
-		error: function(response){
+		error() {
 			$(".errorMessage").removeClass("invisible")
+		},
+		success() {
+			$(".errorMessage").addClass("invisible")
 		}
 	// 1. Return data
 	}).then((data) => {
@@ -38,7 +42,6 @@ dotpApp.getPatios = (userInput) => {
 			objectsArray.forEach((object) => venuesArray.push(object.venue))
 
 	//2.Turn returned data into an array
-
 	// pass it into a new function
 		dotpApp.displayInfo(venuesArray);
 
@@ -47,9 +50,14 @@ dotpApp.getPatios = (userInput) => {
 
 dotpApp.displayInfo = (items) => {
 	$('#patioResults').empty();
+
+	var newArray = items.filter((results) => {
+		return results.name + results.rating;
+	})
+	console.log(newArray);
 	items.forEach((item) => {
 
-	
+
 		const foursquareVerified = item.verified
 		const foursquareName = item.name;
 		const foursquareRating = item.rating;
