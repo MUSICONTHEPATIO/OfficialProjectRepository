@@ -47,14 +47,12 @@ dotpApp.getPatios = (userInput) => {
 	}).then((data) => {
 			const objectsArray = data.response.groups[0].items;
 			let venuesArray = [];
-			console.log(objectsArray);
 
 			objectsArray.forEach((object) => venuesArray.push(object.venue))
 
 	//2.Turn returned data into an array
 	// pass it into a new function
 		dotpApp.displayInfo(venuesArray);
-		console.log(venuesArray);
 
 	});
 }
@@ -76,10 +74,10 @@ dotpApp.displayInfo = (items) => {
 		const foursquareUrl = item.url;
 
 		const foursquareNameElement = $('<h4>').addClass('venueName').text(foursquareName);
-		const foursquareRatingElement = $('<p>').addClass('results__Content').text(`Rating: ` +foursquareRating + `/10`);
+		const foursquareRatingElement = $('<p>').addClass('results__Content').text(foursquareRating);
 		const foursquareLocationElement = $('<p>').addClass('results__Content').text(foursquareLocation);
 		const foursquarePhoneElement = $('<p>').addClass('results__Content').text(foursquarePhone);
-		const foursquarePriceElement = $('<p>').addClass('results__Content').text(`Price: ` + foursquarePrice + `/$$$`);
+		const foursquarePriceElement = $('<p>').addClass('results__Content').text(foursquarePrice);
 		const foursquareUrlElement = $('<a href>').addClass('results__Content').text(foursquareUrl);
 
 		const patioSuggestion = $('<div>').addClass('suggestedPatio').append(foursquareNameElement, foursquareRatingElement, foursquareLocationElement, foursquarePhoneElement, foursquarePriceElement, foursquareUrlElement);
