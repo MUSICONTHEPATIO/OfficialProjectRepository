@@ -184,7 +184,7 @@ dotpApp.init = function(){
 
 
 $(function() {
-  dotpApp.init();
+  dotpApp.init(); 
 
   // $(function() {
   $('a[href*="#"]:not([href="#"])').click(function() {
