@@ -9,8 +9,8 @@
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	
 }
+
 .formContainer {
 	display: flex;
 	flex-direction: column;
@@ -35,25 +35,10 @@ footer p{
 	text-align: center;
 	background-color: $brandSecondary;
 	color: $offWhite;
-	margin-bottom: 0;
+	margin: 0;
 	letter-spacing: 1px;
-	// font-weight: lighter;
 }
 
-
-// THINGS THAT STILL NEED TO BE DONE (by priority)
-// 1. Title page subtitle [Done? Thoughts?]
-// 2. Finish the styling of the results page [Added similar colour from location page to keep consistency]
-// 3. Responsive [Started below. I decided not to use variables. Thoughts? Can't seem to get spotify playlist to center]
-// 4. Link icons in the title page to websites [Llinked to personal facebook page we created for website]
-// 5. Footer background colour [thought I would wait until we decided what the background of the results page would be) [I added a colour to results page. What do you think?]
-// 6. Take off fixed values in the inputs and insert placeholder text [Kept on so you could review responsive]
-// 7. Hovers on buttons [Added transition]
-// 8. Change hero image to something not off of google (TK said she had access to an image website) if not, credit where the image is from in the footer [Done. Added some photo options I found searching shutterstock.]
-
-
-// Added this here to coincide with other major styling lsits
-// /* Portrait tablet and small desktops */
 @media (max-width: 940px) {
 	.container{
 		flex-direction: column;
@@ -62,8 +47,13 @@ footer p{
 	.patio{
 		width:100%;
 	}
+
 	.spotifyPlaylist {
 		margin: 20px 0;
+	}
+
+	.suggestedPatio {
+		margin-top: 20px;
 	}
 }
 
@@ -83,44 +73,64 @@ footer p{
 	}
 }
 
+@media (max-width: 600px) {
+	.arrowIcon--music {
+		display: none;
+	}
+}
+
 // /* Landscape phones and down */
 @media (max-width: 480px) {
+	header h1 {
+		padding-top: 100px;
+	}
 
-	.h2Style{
+	.h2Style {
 		font-size: 4rem;
 	}
 
-	.form{
+	.form {
 		padding: 0 20px;
 	}
 
-	h1{
+	.errorMessage:first-of-type {
+		margin-top: 5px;
+	}
+
+	h1 {
 		font-size: 5rem;
 		padding-top: 100px
 	}
 
-	.locationForm__submit{
+	.locationForm__submit {
 		margin-bottom: 10px
 	}
 
-	.container{
+	.container {
 		flex-direction: column;
-		padding-top: 20px;
+	}
+
+	.suggestedPatio {
+		margin-top: 20px;
+	}
+
+	.arrowIcon--music {
+		display: none;
 	}
 
 	.patio{
 		width:100%;
 	}
 
-	.formDescription{
+	.formDescription {
 		padding:10px
 	}
 
-	.formContainer--location{
+	.formContainer--location {
 		margin-top:10px;
 	}
 
-	nav a{
+	nav a {
 		padding: 0 10px;
 	}
 
@@ -128,6 +138,12 @@ footer p{
 		height: 80px;
 		margin: 20px 0;
 		width: 300px;
+	}
+
+	footer p {
+		font-size: 1rem;
+		padding: 15px 0;
+
 	}
 }
 

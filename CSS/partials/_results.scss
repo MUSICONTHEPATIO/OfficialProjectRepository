@@ -27,14 +27,13 @@
 	display: block;
 	border: none;
 	margin: none;
-	margin: 125px 0;
+	margin: 150px 0;
 	background-color: white;
 }
 
 .playlistElement {
 	border: none;
 }
-
 
 .suggestedPatio {
 	border: 5px solid $brandPrimary;
@@ -43,6 +42,8 @@
 	background: $offWhite;
 	padding: 20px 0;
 	margin-bottom: 10px;
+	background: linear-gradient(to right, rgba(211,4,208,0.9) -1%,rgba(211,4,208,0.8) 0%,rgba(65,65,242,0.8) 100%);
+	letter-spacing: 1px;
 }
 
 .results__Content {
@@ -51,12 +52,15 @@
 	font-family: $bodyFontFamily;
 	padding-top: 3px;
 	letter-spacing: 0.5px;
+	color: $offWhite;
 }
+
 
 .venueName {
 	font-size: 1.5rem;
 	font-style: $titleFontFamily;
 	margin: 0;
 	letter-spacing: 1px;
+	color: $offWhite;
 }
 
