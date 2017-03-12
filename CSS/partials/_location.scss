@@ -9,20 +9,39 @@
 
 	p {
 		color: $brandPrimary;
+		font-weight: bold;
 	}
 
 	.submit {
-	border: 3px solid $brandPrimary;
+		border: 3px solid $brandSecondary;
+
 	}
+}
+
+.submit:hover{
+	transform: scale(1.2);
+  	transition: all 0.3s;
 }
 
 .musicPage {
 	background-color: $brandPrimary;
-
 }
 
 .invisible {
 	display: none;
+}
+
+.errorMessage h4 {
+	color: $offWhite;
+	font-family: $bodyFontFamily;
+	font-size: $bodyFontSize;
+	letter-spacing: 1px;
+	width: 100%;
+	text-align: center;
+}
+
+.formContainer--location {
+	margin-top: 150px;
 }
 
 .h2Style {
@@ -30,32 +49,49 @@
 	font-size: 4.5rem;	
 	color: $brandWhite;
 	font-family: $titleFontFamily;
+	letter-spacing: 1px;
 }
 
 .formDescription {
 	color: white;
 	font-family: $bodyFontFamily;
 	font-size: $bodyFontSize;
-
+	letter-spacing: 1px;
 }
 
 .form__displayBlock {
 	display: block;
-	margin: 0 auto
+	margin: 0 auto;
 }
 
 .form {
-	// border: 1px solid red;
 	margin-top: 50px;
 }
 
 .form__input {
 	@include inputField
 	margin-top: 20px;
+}
 
+.arrowIcon {
+	display: block;
+	font-size: $titleFontSize;
+}
+
+.arrowIcon--location {
+	color: $brandPrimary;
+}
+
+.arrowIcon--music {
+	color: $offWhite;
 }
 
 .submit {
 	@include button(#FFFFFF, #FFFFFF)
 	margin-top: 20px;
 }
+
+.locationForm__submit {
+	margin-bottom: 110px;
+}
+

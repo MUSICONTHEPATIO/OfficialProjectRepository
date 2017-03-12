@@ -137,23 +137,53 @@ header {
   height: 100vh;
   background-size: cover;
   background-position: center;
-  background-image: linear-gradient(to right, rgba(211, 4, 208, 0.9) -1%, rgba(211, 4, 208, 0.6) 0%, rgba(65, 65, 242, 0.6) 100%), url(../images/heroImage1.jpg); }
+  background-image: linear-gradient(to right, rgba(211, 4, 208, 0.9) -1%, rgba(211, 4, 208, 0.8) 0%, rgba(65, 65, 242, 0.8) 100%), url(../images/heroImage1.jpg); }
+
+nav {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
+
+nav ul {
+  margin-right: 50px;
+  margin-top: 10px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-left: 0;
+  width: 12%; }
+
+nav a {
+  color: white; }
 
 header h1 {
   font-size: 6rem;
   text-align: center;
-  padding-bottom: 5px;
   font-family: "Montserrat", sans-serif;
-  padding-top: 100px; }
+  padding-top: 150px;
+  margin-bottom: -20px; }
 
 header h3 {
   font-size: 2rem;
   text-align: center;
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+  font-style: italic; }
 
 .header__buttonContainer {
   width: 100%;
   text-align: center; }
+
+.header__buttonContainer:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  transition: all 0.3s; }
 
 a.header__button {
   background-color: #E33794;
@@ -190,9 +220,16 @@ ul {
   .locationPage h2 {
     color: #5453A4; }
   .locationPage p {
-    color: #5453A4; }
+    color: #5453A4;
+    font-weight: bold; }
   .locationPage .submit {
-    border: 3px solid #5453A4; }
+    border: 3px solid #E33794; }
+
+.submit:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  transition: all 0.3s; }
 
 .musicPage {
   background-color: #5453A4; }
@@ -200,16 +237,29 @@ ul {
 .invisible {
   display: none; }
 
+.errorMessage h4 {
+  color: #f7fafa;
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  width: 100%;
+  text-align: center; }
+
+.formContainer--location {
+  margin-top: 150px; }
+
 .h2Style {
   margin: 0;
   font-size: 4.5rem;
   color: #ffffff;
-  font-family: "Montserrat", sans-serif; }
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px; }
 
 .formDescription {
   color: white;
   font-family: "Roboto", sans-serif;
-  font-size: 2rem; }
+  font-size: 2rem;
+  letter-spacing: 1px; }
 
 .form__displayBlock {
   display: block;
@@ -224,6 +274,16 @@ ul {
   width: calc(100% - 10px);
   margin-top: 20px; }
 
+.arrowIcon {
+  display: block;
+  font-size: 6rem; }
+
+.arrowIcon--location {
+  color: #5453A4; }
+
+.arrowIcon--music {
+  color: #f7fafa; }
+
 .submit {
   background-color: #E33794;
   border: 3px solid #FFFFFF;
@@ -236,6 +296,9 @@ ul {
   text-transform: uppercase;
   margin-top: 20px; }
 
+.locationForm__submit {
+  margin-bottom: 110px; }
+
 .container {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -243,8 +306,8 @@ ul {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  height: 100vh;
-  background: darkgrey; }
+  padding: 25px 0;
+  background-color: #f7fafa; }
 
 .patio {
   width: 50%;
@@ -273,22 +336,30 @@ ul {
   -ms-flex-align: center;
   align-items: center; }
 
+.playlistElement {
+  border: none;
+  background-color: #282828; }
+
 .suggestedPatio {
-  border: 1px solid black;
-  width: 60%;
+  border: 5px solid #5453A4;
+  width: 75%;
   text-align: center;
-  background: gainsboro;
-  padding: 20px 0; }
+  background: #f7fafa;
+  padding: 20px 0;
+  margin-bottom: 10px; }
 
 .results__Content {
   margin: 0;
-  font-size: 1rem;
-  font-family: "Roboto", sans-serif; }
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  padding-top: 3px;
+  letter-spacing: 0.5px; }
 
 .venueName {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-style: "Montserrat", sans-serif;
-  margin: 0; }
+  margin: 0;
+  letter-spacing: 1px; }
 
 .flex {
   display: -webkit-flex;
@@ -319,3 +390,58 @@ html {
 
 body {
   max-width: 1300px; }
+
+footer p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  padding: 10px;
+  text-align: center; }
+
+@media (max-width: 940px) {
+  .container {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .patio {
+    width: 100%; } }
+
+@media (max-width: 767px) {
+  .container {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .patio {
+    width: 100%; }
+  .form {
+    padding: 0 20px;
+    margin-top: 0px; } }
+
+@media (max-width: 480px) {
+  .h2Style {
+    font-size: 4rem; }
+  .form {
+    padding: 0 20px; }
+  h1 {
+    font-size: 5rem;
+    padding-top: 100px; }
+  .locationForm__submit {
+    margin-bottom: 10px; }
+  .container {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .patio {
+    width: 100%; }
+  .formDescription {
+    padding: 10px; }
+  .formContainer--location {
+    margin-top: 10px; }
+  nav a {
+    padding: 0 10px; } }
+
+@media (max-width: 284px) {
+  header h1 {
+    font-size: 3rem;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center; } }

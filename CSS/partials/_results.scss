@@ -1,8 +1,10 @@
+@import 'partials/variables';
+
 .container {
 	display: flex;
 	flex-direction: row;
-	height: 100vh;
-	background: darkgrey;
+	padding: 25px 0;
+	background-color: #f7fafa;
 }
 
 .patio {
@@ -18,25 +20,37 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	// margin: 160px 0;
 }
 
+.playlistElement {
+	border: none;
+	background-color: #282828;
+	// padding-top: 20px;
+}
+
+
 .suggestedPatio {
-	border: 1px solid black;
-	width: 60%;
+	border: 5px solid $brandPrimary;
+	width: 75%;
 	text-align: center;
-	background: gainsboro;
+	background: $offWhite;
 	padding: 20px 0;
+	margin-bottom: 10px;
 }
 
 .results__Content {
 	margin: 0;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	font-family: $bodyFontFamily;
+	padding-top: 3px;
+	letter-spacing: 0.5px;
 }
 
 .venueName {
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	font-style: $titleFontFamily;
 	margin: 0;
+	letter-spacing: 1px;
 }
 

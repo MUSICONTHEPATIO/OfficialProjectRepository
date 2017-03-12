@@ -24,7 +24,7 @@ dotpApp.getPatios = (userInput) => {
 			client_id: dotpApp.clientId,
 			client_secret: dotpApp.clientSecret,
 			v: "20150201",
-			limit: 5,
+			limit: 4,
 			query: "patio",
 			venuePhotos: 1
 		},
@@ -73,7 +73,7 @@ dotpApp.displayInfo = (items) => {
 		const foursquarePriceElement = $('<p>').addClass('results__Content').text(foursquarePrice);
 		const foursquareUrlElement = $('<a href>').addClass('results__Content').text(foursquareUrl);
 
-		const patioSuggestion = $('<div>').addClass('suggestedPatio carousel-cell').append(foursquareNameElement, foursquareRatingElement, foursquareLocationElement, foursquarePhoneElement, foursquarePriceElement, foursquareUrlElement);
+		const patioSuggestion = $('<div>').addClass('suggestedPatio').append(foursquareNameElement, foursquareRatingElement, foursquareLocationElement, foursquarePhoneElement, foursquarePriceElement, foursquareUrlElement);
 
             $(".patio").append(patioSuggestion);		
 	})
@@ -93,8 +93,12 @@ dotpApp.spotifyEvents = function() {
 
 
 		dotpApp.getPatios(userInput);
+
+		$('html, body').animate({
+          scrollTop: $("#resultsSection").offset().top
+        }, 1000);
 		
-		// dotpApp.retrieveArtistInfo(search);
+		dotpApp.retrieveArtistInfo(search);
 	})
 }
 
@@ -176,9 +180,8 @@ dotpApp.buildPlaylist = (tracks) => {
 			randomTracks.join();
 			const baseUrl = `https://embed.spotify.com/?theme=white&uri=spotify:trackset:Patio Party:${randomTracks.join()}`;
 
-			$('.playlist').html(`<iframe src="${baseUrl}" height="350"></iframe>`)
-				dotpApp.getPatios();
-			
+			$('.playlistElement').html(`<iframe src="${baseUrl}" height="625" width="500"></iframe>`)
+
 		})
 };
 
@@ -189,7 +192,22 @@ dotpApp.init = function(){
 
 
 $(function() {
-  dotpApp.init();
+  dotpApp.init(); 
+
+  // $(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+// });
 });
 
 

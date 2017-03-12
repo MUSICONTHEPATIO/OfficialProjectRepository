@@ -21,17 +21,23 @@
 
 		<nav>
 			<ul>
-				<li class="twitterIcon"><i class="fa fa-twitter" aria-hidden="true"></i></li>
-				<li><i class="fa fa-envelope-o" aria-hidden="true"></i></li>
-				<li><i class="fa fa-facebook" aria-hidden="true"></i></li>
+				<li class="twitterIcon">
+					<a href="https://twitter.com/intent/tweet?text=Finally%20a%20website%20that%20serves%20up%20the%20best%20music%20and%20patios%20http://bit.ly/2mqRq0j"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a href="mailto:heather@hackeryou.com?subject=Enjoy your time on the patio with this new app"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/Drinking-on-the-Patio-1645194015788813/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				</li>
 			</ul>
 		</nav>
 
 		<h1>Drinking On the Patio</h1>
 
-		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae non excepturi dolore molestias dolor ratione</h3>
+		<h3>Discover new music and the best patios Toronto has to offer with this new app</h3>
 
-		<div class="header__buttonContainer"><a href="#" class="header__button">Get Started</a></div>
+		<div class="header__buttonContainer"><a href="#locationSection" class="header__button">Get Started</a></div>
 
 	</header>
 
@@ -39,13 +45,13 @@
 
 
 	<!-- LOCATION LOCATION LOCATION -->
-	<section class="locationPage flex">
+	<section class="locationPage flex" id="locationSection">
 
-		<div class="formContainer">
+		<div class="formContainer formContainer--location">
 
-			<h2 class="h2Style">Where you at?</h2>
+			<h2 class="h2Style">Where are you?</h2>
 
-			<p class="formDescription">Enter your city or neighbourhood and your province</p>
+			<p class="formDescription">Please enter your city or neighbourhood and your province.</p>
 
 			<form class="form locationForm">
 
@@ -59,6 +65,8 @@
 
 			</form>
 
+			<a class="arrowIcon arrowIcon--location" href="#musicSection"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+
 		</div>	
 
 	</section>
@@ -68,13 +76,13 @@
 
 	<!-- MUSIC MUSIC MUSIC MUSIC -->
 
-	<section class="musicPage flex">
+	<section class="musicPage flex" id="musicSection">
 
-		<div class="formContainer">
+		<div class="formContainer formContainer--music">
 
 			<h2 class="h2Style">What are you listening to?</h2>
 
-			<p class="formDescription">Enter three artists you would enjoying listening to on a patio</p>
+			<p class="formDescription">Please enter one to three artists you would enjoying listening to on a patio.</p>
 
 			<form class="form musicForm">
 
@@ -91,10 +99,12 @@
 				<input class="submit musicForm__submit form__displayBlock" type="submit">
 
 			</form>	
-			
+
 			<div class="errorMessage invisible">
-				<h4>Looks like FourSquare can't find your location. Think you can try another?</h4>
+				<h4>Looks like FourSquare can't find your location. Please try another address?</h4>
+				<a class="arrowIcon arrowIcon--music" href="#locationSection"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 			</div>
+			
 		</div>	
 
 	</section>
@@ -102,11 +112,13 @@
 
 
 	<!-- RESULTS RESULTS RESULTS RESULTS -->
-	<div class="container">
+	<div class="container" id="resultsSection">
 		
-		<div class="patio main-carousel" id="patioResults"></div>
+		<div class="patio" id="patioResults"></div>
 
-		<div class="playlist"></div>
+		<div class="playlist">
+			<div class="playlistElement"></div>
+		</div>
 
 	</div>
 	
