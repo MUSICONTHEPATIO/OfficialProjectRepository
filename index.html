@@ -7,6 +7,7 @@
 	<script src="https://use.fontawesome.com/858e950473.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Crafty+Girls|Kalam|Pangolin|Permanent+Marker|Roboto|Zeyada" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script
@@ -90,7 +91,10 @@
 				<input class="submit musicForm__submit form__displayBlock" type="submit">
 
 			</form>	
-
+			
+			<div class="errorMessage invisible">
+				<h4>Looks like FourSquare can't find your location. Think you can try another?</h4>
+			</div>
 		</div>	
 
 	</section>
@@ -100,7 +104,7 @@
 	<!-- RESULTS RESULTS RESULTS RESULTS -->
 	<div class="container">
 		
-		<div class="patio" id="patioResults">></div>
+		<div class="patio main-carousel" id="patioResults"></div>
 
 		<div class="playlist"></div>
 
@@ -122,9 +126,12 @@
 	<!-- END FOOTER END FOOTER -->
 	
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="javascript/script.js"></script>
+
 </body>
 </html>

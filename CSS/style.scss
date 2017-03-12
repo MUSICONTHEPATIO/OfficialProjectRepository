@@ -1,9 +1,9 @@
+@import 'partials/setup';
 @import 'partials/variables';
 @import 'partials/titlePage';
 @import 'partials/location';
 @import 'partials/responsive';
 @import 'partials/results';
-@import 'partials/setup';
 
 .flex {
 	display: flex;
@@ -13,7 +13,6 @@
 	
 }
 .formContainer {
-	border: 1px solid black;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

@@ -1,11 +1,28 @@
 @import 'partials/variables';
 
 .locationPage {
-	background-color: lightpink;
+	background-color: $offWhite;
+
+	h2 {
+		color: $brandPrimary;
+	}
+
+	p {
+		color: $brandPrimary;
+	}
+
+	.submit {
+	border: 3px solid $brandPrimary;
+	}
 }
 
 .musicPage {
-	background-color: darkcyan;
+	background-color: $brandPrimary;
+
+}
+
+.invisible {
+	display: none;
 }
 
 .h2Style {
@@ -28,13 +45,14 @@
 }
 
 .form {
-	border: 1px solid red;
+	// border: 1px solid red;
 	margin-top: 50px;
 }
 
 .form__input {
 	@include inputField
 	margin-top: 20px;
+
 }
 
 .submit {

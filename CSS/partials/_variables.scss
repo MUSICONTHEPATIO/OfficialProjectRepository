@@ -1,5 +1,5 @@
 @mixin button($fontColor, $borderColor) {
-    background-color: transparent;
+    background-color: $brandSecondary;
     border: 3px solid $borderColor;
     color: $fontColor;
     letter-spacing: 4px;
@@ -12,8 +12,8 @@
 
 @mixin inputField {
     font-size: 2rem;
-    padding: 10px 20px;
-    width: 100%;
+    padding: 10px 5px;
+    width: calc(100% - 10px);
 }
     
 
@@ -31,3 +31,4 @@ $bodyFontSize: 2rem;
 $brandPrimary: #5453A4;
 $brandSecondary: #E33794;
 $brandWhite: #ffffff;
+$offWhite: rgb(247,250,250);
