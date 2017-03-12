@@ -10,14 +10,6 @@ userInput = "";
 $(".locationForm").on('submit', function(e){
 	e.preventDefault();
 	userInput = $("#userLocation").val();
-		// if ($"#error").hasClass("invisible") {
-		// 	$('html, body').animate({
-		//   	scrollTop: $("#resultsSection").offset().top
-		// 	}, 1000);
-		// }else {
-		// 	console.log('hey');
-		// }
-		
 	$("#userlocation").val("");
 });
 
@@ -95,10 +87,14 @@ dotpApp.spotifyEvents = function() {
 		e.preventDefault();
 		$("input[type=search]").each(function() {
    			spotifyArray.push($(this).val());
-		})
+			})
 		let search = spotifyArray.map(artistName => dotpApp.searchArtist(artistName));
+		dotpApp.getPatios(userInput);	
 
-		dotpApp.getPatios(userInput);		
+		$('html, body').animate({
+	  	scrollTop: $("#resultsSection").offset().top
+		}, 1000)
+
 		dotpApp.retrieveArtistInfo(search);
 	})
 }
@@ -111,6 +107,12 @@ dotpApp.searchArtist = (artistName) => $.ajax({
 	data: {
 		q: artistName,
 		type: 'artist'
+	},
+	error() {
+		$(".spotifyError").removeClass("invisible")
+	},
+	success() {
+		$(".spotifyError").addClass("invisible")
 	}
 })
 
