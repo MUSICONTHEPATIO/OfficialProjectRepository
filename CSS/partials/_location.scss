@@ -14,7 +14,6 @@
 
 	.submit {
 		border: 3px solid $brandSecondary;
-		border: 3px solid purple;
 
 	}
 }
@@ -35,14 +34,22 @@
 .errorMessage h4 {
 	color: $offWhite;
 	font-family: $bodyFontFamily;
-	font-size: $bodyFontSize;
+	font-size: 1.5rem;
 	letter-spacing: 1px;
 	width: 100%;
 	text-align: center;
 }
 
+.errorMessage:first-of-type {
+	margin-top: 10px;
+}
+
 .formContainer--location {
 	margin-top: 150px;
+}
+
+.formContainer--music {
+	margin-top: 80px;
 }
 
 .h2Style {

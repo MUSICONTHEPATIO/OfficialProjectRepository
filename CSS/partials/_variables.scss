@@ -17,7 +17,7 @@
 }
 
 @mixin backgroundGradient {
-    background: linear-gradient(to right, rgba(211,4,208,0.9) -1%,rgba(211,4,208,0.6) 0%,rgba(65,65,242,0.6) 100%);  
+    background: linear-gradient(to right, rgba(211,4,208,0.9) -1%,rgba(211,4,208,0.6) 0%,rgba(65,65,242,0.6) 100%);
     height: 100%;
 }
 
@@ -25,7 +25,6 @@ $titleFontSize: 6rem;
 $titleFontFamily: 'Montserrat', sans-serif;
 $bodyFontFamily:'Roboto', sans-serif;
 $bodyFontSize: 2rem;
-
 
 $brandPrimary: #5453A4;
 $brandSecondary: #E33794;
