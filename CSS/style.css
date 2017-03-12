@@ -205,7 +205,8 @@ header h3 {
   font-size: 2rem;
   text-align: center;
   font-family: "Roboto", sans-serif;
-  font-style: italic;
+  letter-spacing: 0.5px;
+  padding-top: 30px;
 }
 
 .header__buttonContainer {
@@ -351,7 +352,6 @@ ul {
 .container {
   display: flex;
   flex-direction: row;
-  padding: 25px 0;
   background-color: #f7fafa;
 }
 
@@ -376,11 +376,12 @@ ul {
   display: block;
   border: none;
   margin: none;
+  margin: 125px 0;
+  background-color: white;
 }
 
 .playlistElement {
   border: none;
-  background-color: #282828;
 }
 
 .suggestedPatio {
@@ -427,13 +428,19 @@ html {
 
 body {
   max-width: 1300px;
+  margin: 0 auto;
+  background-color: #5453A4;
 }
 
 footer p {
   font-family: "Roboto", sans-serif;
   font-size: 1.3rem;
-  padding: 10px;
+  padding: 20px 0;
   text-align: center;
+  background-color: #E33794;
+  color: #f7fafa;
+  margin-bottom: 0;
+  letter-spacing: 1px;
 }
 
 @media (max-width: 940px) {
@@ -442,6 +449,9 @@ footer p {
   }
   .patio {
     width: 100%;
+  }
+  .spotifyPlaylist {
+    margin: 20px 0;
   }
 }
 
@@ -486,6 +496,11 @@ footer p {
   }
   nav a {
     padding: 0 10px;
+  }
+  .spotifyPlaylist {
+    height: 80px;
+    margin: 20px 0;
+    width: 300px;
   }
 }
 

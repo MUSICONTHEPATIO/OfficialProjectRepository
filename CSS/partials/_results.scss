@@ -3,7 +3,6 @@
 .container {
 	display: flex;
 	flex-direction: row;
-	padding: 25px 0;
 	background-color: #f7fafa;
 }
 
@@ -28,11 +27,12 @@
 	display: block;
 	border: none;
 	margin: none;
+	margin: 125px 0;
+	background-color: white;
 }
 
 .playlistElement {
 	border: none;
-	background-color: #282828;
 }
 
 

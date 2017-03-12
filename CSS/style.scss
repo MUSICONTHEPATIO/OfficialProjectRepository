@@ -24,13 +24,20 @@ html {
 
 body {
 	max-width: 1300px;
+	margin: 0 auto;
+	background-color: $brandPrimary;
 }
 
 footer p{
 	font-family: $bodyFontFamily;
 	font-size: 1.3rem;
-	padding: 10px;
+	padding: 20px 0;
 	text-align: center;
+	background-color: $brandSecondary;
+	color: $offWhite;
+	margin-bottom: 0;
+	letter-spacing: 1px;
+	// font-weight: lighter;
 }
 
 
@@ -55,13 +62,14 @@ footer p{
 	.patio{
 		width:100%;
 	}
-
+	.spotifyPlaylist {
+		margin: 20px 0;
+	}
 }
 
 // /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-
-		.container {
+	.container {
 		flex-direction: column;
 	}
 
@@ -73,8 +81,6 @@ footer p{
 		padding: 0 20px;
 		margin-top: 0px;
 	}
-
-
 }
 
 // /* Landscape phones and down */
@@ -115,6 +121,12 @@ footer p{
 
 	nav a{
 		padding: 0 10px;
+	}
+
+	.spotifyPlaylist {
+		height: 80px;
+		margin: 20px 0;
+		width: 300px;
 	}
 }
 
