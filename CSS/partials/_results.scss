@@ -1,8 +1,10 @@
+@import 'partials/variables';
+
 .container {
 	display: flex;
 	flex-direction: row;
 	padding: 25px 0;
-	background-color: grey;
+	background-color: #f7fafa;
 }
 
 .patio {

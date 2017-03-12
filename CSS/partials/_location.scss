@@ -14,7 +14,13 @@
 
 	.submit {
 		border: 3px solid $brandSecondary;
+
 	}
+}
+
+.submit:hover{
+	transform: scale(1.2);
+  	transition: all 0.3s;
 }
 
 .musicPage {
@@ -30,7 +36,7 @@
 	font-family: $bodyFontFamily;
 	font-size: $bodyFontSize;
 	letter-spacing: 1px;
-	width: 590px;
+	width: 100%;
 	text-align: center;
 }
 
