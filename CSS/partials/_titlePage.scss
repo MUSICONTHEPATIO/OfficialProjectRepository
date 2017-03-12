@@ -5,7 +5,25 @@ header {
 	height: 100vh;
 	background-size: cover;
 	background-position: center; 
-	background-image: linear-gradient(to right, rgba(211,4,208,0.9) -1%,rgba(211,4,208,0.6) 0%,rgba(65,65,242,0.6) 100%), url(../images/heroImage1.jpg);
+	background-image: linear-gradient(to right, rgba(211,4,208,0.9) -1%,rgba(211,4,208,0.8) 0%,rgba(65,65,242,0.8) 100%), url(../images/heroImage1.jpg);
+}
+
+nav {
+	display: flex;
+	justify-content: flex-end;
+}
+
+nav ul {
+	margin-right: 50px;
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+	padding-left: 0;
+	width: 12%;
+}
+
+nav a {
+	color: white;
 }
 
 header h1 {
@@ -13,7 +31,7 @@ header h1 {
 	text-align: center;
 	padding-bottom: 5px;
 	font-family: $titleFontFamily;
-	padding-top:100px;
+	padding-top: 150px;
 }
 
 header h3 {
