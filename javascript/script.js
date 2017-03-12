@@ -34,6 +34,7 @@ dotpApp.getPatios = (userInput) => {
 		success() {
 			$(".errorMessage").addClass("invisible")
 		}
+
 	// 1. Return data
 	}).then((data) => {
 			const objectsArray = data.response.groups[0].items;
@@ -54,7 +55,6 @@ dotpApp.displayInfo = (items) => {
 	var newArray = items.filter((results) => {
 		return results.name + results.rating;
 	})
-	console.log(newArray);
 	items.forEach((item) => {
 
 
@@ -91,12 +91,15 @@ dotpApp.spotifyEvents = function() {
 		})
 		let search = spotifyArray.map(artistName => dotpApp.searchArtist(artistName));
 
-
 		dotpApp.getPatios(userInput);
 
-		$('html, body').animate({
-          scrollTop: $("#resultsSection").offset().top
-        }, 1000);
+		if ($"#error").hasClass("invisible") {
+			$('html, body').animate({
+          	scrollTop: $("#resultsSection").offset().top
+        	}, 1000);
+		}else {
+			console.log('hey');
+		}
 		
 		dotpApp.retrieveArtistInfo(search);
 	})
@@ -180,7 +183,8 @@ dotpApp.buildPlaylist = (tracks) => {
 			randomTracks.join();
 			const baseUrl = `https://embed.spotify.com/?theme=white&uri=spotify:trackset:Patio Party:${randomTracks.join()}`;
 
-			$('.playlistElement').html(`<iframe src="${baseUrl}" height="625" width="500"></iframe>`)
+			$('.playlistElement').html(`<iframe src="${baseUrl}"></iframe>`)
+			$('iframe').addClass('spotifyPlaylist')
 
 		})
 };
