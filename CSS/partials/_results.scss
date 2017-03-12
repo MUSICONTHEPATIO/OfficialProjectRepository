@@ -20,13 +20,19 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	// margin: 160px 0;
+	margin: 0 auto;
+}
+
+.spotifyPlaylist {
+	height: 380px;
+	display: block;
+	border: none;
+	margin: none;
 }
 
 .playlistElement {
 	border: none;
 	background-color: #282828;
-	// padding-top: 20px;
 }
 
 
